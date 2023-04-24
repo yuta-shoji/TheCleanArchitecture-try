@@ -10,8 +10,9 @@ class UserController {
     private lateinit var addUseCase: UserAddUseCase
 
     fun createUser(name: String, roleId: String) {
+        // アプリケーションが分かる形にデータを変換する
         val role: UserRole = convertRole(roleId)
-        // アプリケーションが分かる形に変換する　
+        // Userインスタンスを生成する
         val inputData = UserAddInputData(name, role)
         // InputBoundaryを呼び出して渡す
         addUseCase.handle(inputData)
